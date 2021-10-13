@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const userSchema = require("./User");
+const tweetSchema = require("./Tweet");
 
-const User = require("./User");
-const Tweet = require("./Tweet");
+const Tweet = mongoose.model("Tweet", tweetSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = {
   User,

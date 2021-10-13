@@ -1,11 +1,12 @@
-// const db = require("./models");
+const mongoose = require("mongoose");
+const { User, Tweet } = require("./models");
 
-// module.exports = async () => {
-//   // Crear tablas:
-//   await db.sequelize.sync({ force: true });
-//   console.log("[Database] ¡Las tablas fueron creadas!");
+module.exports = async () => {
+  mongoose.connect(`mongodb://${process.env.DB_HOST}/${process.env.DB_DATABASE}`);
+  mongoose.connection
+    .once("open", () => console.log("[Mongoose] Conexión con la base de datos establecida"))
+    .on("error", (error) => console.log(error));
 
-//   // Ejecutar seeders (datos de prueba):
-//   await require("./seeders/articleSeeder")();
-//   console.log("[Database] ¡Los datos de prueba fueron insertados!");
-// };
+  //   await User.deleteMany();
+  //   userSeeder();
+};
