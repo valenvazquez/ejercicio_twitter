@@ -5,6 +5,7 @@
   --color-primary-100: rgba(29, 156, 240, 0.1);
   --color-retweet: rgb(0, 186, 124);
   --color-retweet-200: rgba(0, 186, 124, 0.2);
+  --color-gray-100: rgba(15, 20, 25, 0.1);
 }
 
 body {
@@ -18,11 +19,6 @@ body {
 .fs-7 {
   font-size: 0.8rem;
 }
-
-/* .nav-fixed {
-  position: sticky;
-  top: 0;
-} */
 
 .btn-soft:hover {
   background-color: var(--color-primary-100);
@@ -131,4 +127,12 @@ hr {
 
 .tweet-actions .btn-retweet:hover .rounded-circle {
   background-color: var(--color-retweet-200);
+}
+
+#sidebar .nav-item .btn:hover {
+  background-color: var(--color-gray-100);
+}
+
+#sidebar .nav-item .btn {
+  padding: 0.5rem 1.1rem 0.5rem 0.6rem;
 }

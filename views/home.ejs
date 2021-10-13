@@ -6,47 +6,13 @@
   </head>
 
   <body>
-    <div class="container px-sm-5">
+    <div class="container px-sm-3 px-lg-5">
       <div class="row g-0">
-        <!-- Left column -->
-        <div class="col-4" id="left-column">
-          <div>
-            <button type="button" class="btn btn-outline-light text-dark d-block m-2">
-              <a href="#" id="logo"><i class="bi bi-twitter"></i></a>
-            </button>
-            <button type="button" class="link btn btn-outline-light text-dark d-block m-2">
-              <a href=""><i class="bi bi-house-fill"></i> <strong>Home</strong></a>
-            </button>
-            <button type="button" class="link btn btn-outline-light text-dark d-block m-2">
-              <a href=""><i class="fas fa-hashtag"></i> Explorar</a>
-            </button>
-            <button type="button" class="link btn btn-outline-light text-dark d-block m-2">
-              <a href=""><i class="far fa-bell"></i> Notifications</a>
-            </button>
-            <button type="button" class="link btn btn-outline-light text-dark d-block m-2">
-              <a href=""><i class="far fa-envelope"></i> Messages</a>
-            </button>
-            <button type="button" class="link btn btn-outline-light text-dark d-block m-2">
-              <a href=""><i class="far fa-bookmark"></i> Saved</a>
-            </button>
-            <button type="button" class="link btn btn-outline-light text-dark d-block m-2">
-              <a href=""><i class="far fa-list-alt"></i> List</a>
-            </button>
-            <button type="button" class="link btn btn-outline-light text-dark d-block m-2">
-              <a href=""><i class="far fa-user"></i> Profile</a>
-            </button>
-            <button type="button" class="link btn btn-outline-light text-dark d-block m-2">
-              <a href=""><i class="fas fa-ellipsis-h"></i> More options</a>
-            </button>
-            <button type="button" class="linkTwit btn btn-primary d-block px-5 m-2">
-              <a href="">Twittear</a>
-            </button>
-          </div>
-          <div id="bottom" class="position-fixed d-block m-2 d-flex align-items-end">hola</div>
-        </div>
+        <!-- Sidebar -->
+        <%- include("partials/sidebar") %>
 
         <!-- Main -->
-        <main class="col-4 border container-fluid p-0">
+        <main class="col-6 border container-fluid p-0">
           <div
             class="
               border-bottom
@@ -498,7 +464,8 @@
           </article>
         </main>
 
-        <div class="col-4 container">
+        <!-- Right Column -->
+        <div class="col-3 container">
           <div class="row">
             <div class="col">
               <div class="input-group rounded">
