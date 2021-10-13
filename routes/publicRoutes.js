@@ -6,7 +6,32 @@ publicRouter.get("/home", async (req, res) => {
   const users = await User.find();
   res.json(users);
 });
-// Rutas del Públicas:
-// ...
+
+publicRouter.get("/home");
+
+publicRouter.get("/about-us");
+
+publicRouter.get("/");
+
+publicRouter.get("/:username");
+
+publicRouter.get("/:username/:tweetId");
+
+//crear el tweet
+publicRouter.post("/tweet");
+
+publicRouter.post("/register");
+
+publicRouter.post("/tweet/like/:id");
+
+publicRouter.post("/login-authorization");
+
+publicRouter.delete("/tweet/:id");
+
+publicRouter.delete("/:username");
+
+publicRouter.delete("/tweet/like/:id");
+
+publicRouter.patch("/:username");
 
 module.exports = publicRouter;
