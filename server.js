@@ -5,6 +5,7 @@ const dbInitialSetup = require("./dbInitialSetup");
 const APP_PORT = process.env.APP_PORT || 3000;
 const app = express();
 const passportConfig = require("./config");
+const methodOverride = require("method-override");
 
 dbInitialSetup();
 app.use(express.static("public"));

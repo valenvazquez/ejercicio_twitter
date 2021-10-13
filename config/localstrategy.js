@@ -6,12 +6,13 @@ module.exports = (passport) => {
       username,
       password,
       done,
-    ) {try {
-        const user = await User.findOne({username})
+    ) {
+      try {
+        const user = await User.findOne({ username });
         //seguimos aca
-        if(user === null)
-    } catch (error) {
-        
-    }}),
+        if (user === null) {
+        }
+      } catch (error) {}
+    }),
   );
 };

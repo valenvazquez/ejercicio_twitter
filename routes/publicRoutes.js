@@ -1,11 +1,9 @@
 const express = require("express");
 const publicRouter = express.Router();
 const { User } = require("../models");
+const pagesController = require("../controllers/pagesController");
 
-publicRouter.get("/home", async (req, res) => {
-  const users = await User.find();
-  res.json(users);
-});
+publicRouter.get("/home", pagesController.showHome);
 
 publicRouter.get("/home");
 
