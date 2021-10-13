@@ -1,3 +1,14 @@
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+
+const User = require("./User");
+const Tweet = require("./Tweet");
+
+module.exports = {
+  User,
+  Tweet,
+};
+
 // const { Sequelize, Model, DataTypes } = require("sequelize");
 
 // const sequelize = new Sequelize(
