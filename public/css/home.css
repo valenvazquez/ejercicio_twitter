@@ -136,3 +136,55 @@ hr {
 #sidebar .nav-item .btn {
   padding: 0.5rem 1.1rem 0.5rem 0.6rem;
 }
+
+.widgets__input {
+  display: flex;
+  align-items: center;
+  background-color: #e6ecf0;
+  padding: 10px;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.widgets__searchIcon {
+  color: gray;
+}
+
+.widgets__input input {
+  border: none;
+  background-color: #e6ecf0;
+}
+
+.widgets {
+  flex: 0.2;
+}
+
+.widgets__widgetContainer {
+  margin-top: 15px;
+  margin-left: 20px;
+  padding: 20px;
+  background-color: #f5f8fa;
+  border-radius: 20px;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.widgets__widgetContainer h2 {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.list-group-item {
+  background-color: #f5f8fac2;
+}
+
+li.borderless {
+  border-top: 0 none;
+}
