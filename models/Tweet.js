@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const tweetSchema = new Schema(
   {
-    content: String,
+    content: { type: String, required: true, maxlength: 140 },
     user: {
       type: Schema.Types.ObjectId,
       ref: "User",
