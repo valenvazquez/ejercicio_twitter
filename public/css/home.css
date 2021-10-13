@@ -1,0 +1,135 @@
+:root {
+  --color-primary: rgb(29, 155, 240);
+  --color-like: rgb(249, 24, 129);
+  --color-like-200: rgba(249, 24, 129, 0.2);
+  --color-primary-100: rgba(29, 156, 240, 0.1);
+  --color-retweet: rgb(0, 186, 124);
+  --color-retweet-200: rgba(0, 186, 124, 0.2);
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+main {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.fs-7 {
+  font-size: 0.8rem;
+}
+
+/* .nav-fixed {
+  position: sticky;
+  top: 0;
+} */
+
+.btn-soft:hover {
+  background-color: var(--color-primary-100);
+}
+
+.btn-retweet svg,
+.btn-like svg,
+.btn-soft svg {
+  fill: var(--color-primary);
+  width: 1rem;
+}
+
+.user-image {
+  border-radius: 50%;
+  width: 3rem;
+}
+
+.tweet-content {
+  max-height: 60vh;
+}
+
+.tweet-content [contentEditable]:focus-visible {
+  outline: none;
+}
+
+.tweet-content [contentEditable]:empty:before {
+  content: attr(placeholder);
+  color: var(--bs-gray-700);
+  pointer-events: none;
+  display: block; /* For Firefox */
+}
+
+hr {
+  color: var(--bs-gray-500);
+}
+
+.form-footer svg {
+  width: 1.125rem;
+}
+
+.btn {
+  padding: 0.3rem 0.7rem;
+}
+
+.tweet:hover {
+  background-color: var(--bs-gray-200);
+  cursor: pointer;
+}
+
+.tweet .btn-soft svg {
+  fill: var(--bs-gray-600);
+}
+
+.btn-like:hover .rounded-circle {
+  background-color: var(--color-like-200);
+}
+.btn-like:hover span {
+  color: var(--color-like);
+}
+.btn-like:hover svg {
+  stroke: var(--color-like);
+}
+
+.tweet-actions {
+  margin-left: -0.5rem;
+}
+
+.tweet-actions .rounded-circle {
+  margin-right: 0.2rem;
+}
+.tweet-actions svg {
+  fill: var(--bs-gray-600);
+}
+
+.btn-like svg {
+  stroke: var(--bs-gray-600);
+  stroke-width: 1.5px;
+  fill: none;
+}
+.tweet-actions a {
+  text-decoration: none;
+  color: var(--bs-gray-600);
+}
+
+.tweet-actions .btn-soft:hover {
+  background-color: transparent;
+}
+
+.tweet-actions .btn-soft:hover svg {
+  fill: var(--color-primary);
+}
+.tweet-actions .btn-soft:hover span {
+  color: var(--color-primary);
+}
+
+.tweet-actions .btn-soft:hover .rounded-circle {
+  background-color: var(--color-primary-100);
+}
+
+.tweet-actions .btn-retweet:hover svg {
+  fill: var(--color-retweet);
+}
+.tweet-actions .btn-retweet:hover span {
+  color: var(--color-retweet);
+}
+
+.tweet-actions .btn-retweet:hover .rounded-circle {
+  background-color: var(--color-retweet-200);
+}
