@@ -10,7 +10,7 @@ module.exports = async () => {
   for (let i = 0; i < 10; i++) {
     tweets.push({
       content: faker.lorem.sentence().substring(0, 139),
-      user: users[Math.floor(Math.random() * users.length + 1)].id,
+      user: users[Math.floor(Math.random() * users.length)].id,
     });
   }
 
