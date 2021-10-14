@@ -468,7 +468,12 @@
       <!-- Right Column -->
       <section class="right-sidebar">
         <div class="py-2 px-3 sticky-top bg-white">
-          <div class="rounded-pill bg-light d-flex align-items-center px-3 py-2 fs-7">
+          <form
+            action="/"
+            method="get"
+            class="d-flex align-items-center fs-7 input-container position-relative"
+          >
+            <input type="text" placeholder="Search Twitter" class="w-100 pe-2 py-2 rounded-pill" />
             <svg viewBox="0 0 24 24" width="1rem">
               <g>
                 <path
@@ -476,8 +481,7 @@
                 ></path>
               </g>
             </svg>
-            <input type="text" placeholder="Search Twitter" class="ms-2" />
-          </div>
+          </form>
         </div>
         <div class="row gx-0 gy-4 px-3 py-1">
           <div>
