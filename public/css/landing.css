@@ -1,0 +1,11 @@
+.linkLanding {
+  background-color: white;
+  border-radius: 24px;
+  border-style: solid;
+  border-color: rgb(221, 221, 221);
+  width: 20rem;
+}
+
+.logo {
+  width: 40px;
+}
