@@ -21,7 +21,7 @@ publicRouter.get("/:username/:tweetId");
 //crear el tweet
 publicRouter.post("/tweet");
 
-publicRouter.post("/landing", userController.create);
+publicRouter.post("/landing");
 
 publicRouter.post("/tweet/like/:id");
 
