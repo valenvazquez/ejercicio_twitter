@@ -12,9 +12,9 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
-/* main {
-  max-width: 600px;
-} */
+main {
+  flex: 2 0;
+}
 
 .fs-7 {
   font-size: 0.8rem;
@@ -130,6 +130,7 @@ hr {
 }
 
 #sidebar {
+  flex-grow: 1;
   position: fixed;
   height: 100vh;
 }
