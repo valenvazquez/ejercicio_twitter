@@ -6,6 +6,7 @@ const APP_PORT = process.env.APP_PORT || 3000;
 const app = express();
 const passportConfig = require("./config");
 const methodOverride = require("method-override");
+const localVariable = require("./middlewares/localVariables");
 
 dbInitialSetup();
 app.use(express.static("public"));
@@ -13,6 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
 passportConfig(app);
+app.use(localVariable);
 
 app.use(
   methodOverride(function (req, res) {

@@ -254,6 +254,7 @@
       </li>
     </ul>
   </div>
+  <% if (user) { %>
   <div
     class="
       d-flex
@@ -268,15 +269,11 @@
   >
     <div class="d-flex">
       <div class="pe-xl-1">
-        <img
-          src="https://abs.twimg.com/sticky/default_profile_images/default_profile_x96.png"
-          alt="No avatar image"
-          class="img-fluid user-image"
-        />
+        <img src="<%= user.profilePhoto %> " alt="Avatar image" class="img-fluid user-image" />
       </div>
       <div class="px-1 d-none d-xl-flex flex-column justify-content-center">
-        <a class="fw-bold fs-7 text-black">Valentin Vazquez</a>
-        <p class="text-muted m-0 fs-7">@VVazquez21</p>
+        <a class="fw-bold fs-7 text-black"><%= user.firstname + " " + user.lastname %> </a>
+        <p class="text-muted m-0 fs-7">@<%= user.username %></p>
       </div>
     </div>
     <svg viewBox="0 0 24 24" class="d-none d-xl-inline">
@@ -287,4 +284,5 @@
       </g>
     </svg>
   </div>
+  <% } %>
 </nav>

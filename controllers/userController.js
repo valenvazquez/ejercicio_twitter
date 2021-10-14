@@ -1,4 +1,4 @@
-const User = require("../models/user");
+const { User } = require("../models");
 
 // Display a listing of the resource.
 async function index(req, res) {}
@@ -16,29 +16,26 @@ async function signup(req, res) {
 async function signin(req, res) {}
 
 // Show the form for creating a new resource
-async function create(req, res) {
-  const user = new User({
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
-  });
-  user
-    .save()
-    .catch((error) => {
-      return res.render("landing", { errors: error.errors, user: user });
-    })
-    .then(() => {
-      return req.login(user);
-    })
-    .then(() => {
-      return res.redirect("/");
-    })
-    .catch((error) => {
-      return next(error);
-    });
+async function store(req, res) {
+  try {
+    const user = await User.create(req.body);
+    req.login(user, () => res.redirect("/home"));
+  } catch (error) {
+    res.render("landing", { errors: error.errors, user: user });
+  }
+  // .catch((error) => {
+  //   return
+  // })
+  // .then(() => {
+  //   return req.login(user);
+  // })
+  // .then(() => {
+  //   return res.redirect("/");
+  // })
+  // .catch((error) => {
+  //   return next(error);
+  // });
 }
-
-// Store a newly created resource in storage.
-async function store(req, res) {}
 
 // Show the form for editing the specified resource.
 async function edit(req, res) {
@@ -58,9 +55,6 @@ async function edit(req, res) {
 
 // Display the specified resource.
 async function show(req, res) {}
-
-// Store a newly created resource in storage.
-async function store(req, res) {}
 
 // Update the specified resource in storage.
 async function update(req, res) {}

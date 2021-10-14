@@ -15,7 +15,7 @@ module.exports = async () => {
 
     user.followers = usersFollow;
     user.following = usersFollow;
-    // await user.save();
+    await user.save();
   }
 
   console.log("[Database] Se corrió el seeder de Follower.");
