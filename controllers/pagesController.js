@@ -14,6 +14,10 @@ async function showAboutUs(req, res) {
   res.render("aboutUs");
 }
 
+async function showLanding(req, res) {
+  res.render("landing");
+}
+
 // Otros handlers...
 // ...
 
@@ -21,4 +25,5 @@ module.exports = {
   showHome,
   showContact,
   showAboutUs,
+  showLanding,
 };
