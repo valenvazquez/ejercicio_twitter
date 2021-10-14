@@ -1,11 +1,55 @@
+.bluecolor {
+  color: #5aa4d6;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
 .linkLanding {
   background-color: white;
   border-radius: 24px;
   border-style: solid;
   border-color: rgb(221, 221, 221);
   width: 20rem;
+  font-size: 0.8rem;
 }
 
-.logo {
+.googleLogo {
   width: 40px;
+}
+
+#appleButton {
+  font-weight: bold;
+}
+
+#phoneButton {
+  font-weight: bold;
+}
+
+#textAgreement {
+  font-size: 0.7rem;
+}
+
+#textAgreement a {
+  text-decoration: none;
+}
+
+#textSignIn {
+  font-size: 0.8rem;
+}
+
+#textSignIn a {
+  text-decoration: none;
+}
+
+nav {
+  background-color: rgb(230, 230, 230);
+  color: rgb(58, 57, 57);
+  font-size: 0.7rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: rgb(58, 57, 57);
 }

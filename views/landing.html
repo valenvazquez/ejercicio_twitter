@@ -45,24 +45,138 @@
   <body>
     <div>
       <div class="row">
-        <div id="landingImage" class="col-7">
+        <div id="landingImage" class="col-6 me-3">
           <img class="img-fluid" src="../public/img/landingImage.JPG" alt="twitter image" />
         </div>
-        <div class="col-5">
-          <img src="../public/img/logo.JPG" alt="" />
-          <h1 class="mt-4 fw-bold">Lo que está pasando ahora</h1>
-          <h3 class="mt-5 fw-bold">Únete a Twitter hoy mism.</h3>
-          <button type="button" class="linkLanding btn btn-light mt-3 d-block">
-            <img class="logo" src="../public/img/googleLogo.png" alt="" /> Registrarse con Google
+        <div class="col-5 g-0 p-0 d-flex flex-column justify-content-center">
+          <i class="fab fa-twitter fa-2x bluecolor"></i>
+          <h1 class="mt-4 fw-bold">Happening now</h1>
+          <h3 class="mt-5 fw-bold">Join Twitter today.</h3>
+          <button type="button" class="linkLanding btn btn-light mt-4 d-block">
+            <img class="googleLogo" src="../public/img/googleLogo.png" alt="" /> Sign up with Google
           </button>
-          <button type="button" class="linkLanding btn btn-light mt-3 d-block">
-            <i class="bi bi-apple"></i> Registrarse con Apple
+          <button type="button" id="appleButton" class="linkLanding btn btn-light mt-3 d-block">
+            <i class="bi bi-apple"></i> Sign up with Apple
           </button>
-          <button type="button" class="linkLanding btn btn-light mt-3">
-            Registrarse con número de télefon...
+          <button
+            type="button"
+            id="phoneButton"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+            class="linkLanding btn btn-light mt-3 d-block"
+          >
+            Sign up with phone or email
           </button>
+          <p class="mt-2" id="textAgreement">
+            By signing up, you agree to the <a href="">Terms of Service</a> and
+            <a href="">Privacy Policy</a>, including <a href="">Cookie Use.</a>
+          </p>
+          <p id="textSignIn">Already have an account? <a href="">Sign in</a></p>
         </div>
       </div>
     </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade rounded-3"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-4">
+          <div class="d-flex mb-3 justify-content-between">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+            <i class="fab fa-twitter fa-2x bluecolor"></i>
+          </div>
+          <h5 class="modal-title">Create your account</h5>
+          <form action="/registro" method="POST">
+            <div class="mb-3">
+              <label for="firstname" class="form-label">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstname"
+                name="firstname"
+                placeholder="Name"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="lastname" class="form-label">Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastname"
+                name="lastname"
+                placeholder="Last Name"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="Email"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                placeholder="Ingrese su contraseña..."
+              />
+            </div>
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary mb-3 rounded-pill">Register</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <nav aria-label="Footer">
+      <div class="container pt-2 d-flex justify-content-between">
+        <a href="">About</a>
+        <a href="">Help Center</a>
+        <a href="">Terms of Service</a>
+        <a href="">Privacy Policy</a>
+        <a href="">Cookie Policy</a>
+        <a href="">Ads info</a>
+        <a href="">Blog</a>
+        <a href="">Status</a>
+        <a href="">Careers</a>
+        <a href="">Brand Resources</a>
+        <a href="">Advertising</a>
+        <a href="">Marketing</a>
+        <a href="">Twitter for Business</a>
+        <a href="">Developers</a>
+        <a href="">Directory</a>
+        <a href="">Settings</a>
+        © 2021 Twitter, Inc.
+      </div>
+    </nav>
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
