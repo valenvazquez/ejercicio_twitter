@@ -8,10 +8,9 @@ module.exports = async () => {
   const tweets = await Tweet.find();
 
   //agregamos los mismo 5 usuarios a los likes - ver mejor manera de resolverlo
-  for (let tweet of tweets) {
+  for (const tweet of tweets) {
     tweet.likes = users;
-
-    tweet = await tweet.save();
+    await tweet.save();
   }
 
   //await Tweet.save(tweets);
