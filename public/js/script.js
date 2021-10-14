@@ -1,3 +1,3 @@
 $("#textSignIn").click(function () {
-  $("#registerpage").replaceWith("hola");
+  $("#registerPage").replaceWith("hola");
 });

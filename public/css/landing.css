@@ -37,10 +37,15 @@ h1 {
 
 #textSignIn {
   font-size: 0.8rem;
+  display: inline;
 }
 
 #textSignIn a {
   text-decoration: none;
+}
+
+#textAlready {
+  display: inline;
 }
 
 nav {
