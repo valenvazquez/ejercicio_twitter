@@ -28,7 +28,7 @@ main {
 
 @media (max-width: 1200px) {
   .left-sidebar {
-    flex: 0 0 60px;
+    flex: 0 0 65px;
   }
 }
 
@@ -133,6 +133,7 @@ hr {
 
 .tweet-actions {
   margin-left: -0.5rem;
+  max-width: 350px;
 }
 
 .tweet-actions .rounded-circle {
