@@ -10,12 +10,12 @@ module.exports = async () => {
   const users = await User.find();
   const usersFive = await User.find().limit(5);
 
-  for (let user of users) {
+  for (const user of users) {
     const usersFollow = usersFive.filter((u) => user.id !== u.id);
 
     user.followers = usersFollow;
     user.following = usersFollow;
-    user = await user.save();
+    // await user.save();
   }
 
   console.log("[Database] Se corrió el seeder de Follower.");
