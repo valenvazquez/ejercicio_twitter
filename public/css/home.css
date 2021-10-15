@@ -62,6 +62,9 @@ main {
 }
 
 /* ----------------- X -------------- */
+svg {
+  width: 1rem;
+}
 
 a {
   text-decoration: none;
@@ -69,6 +72,14 @@ a {
 
 .fs-7 {
   font-size: 0.8rem;
+}
+
+.fs-8 {
+  font-size: 0.7rem;
+}
+
+.fw-600 {
+  font-weight: 600;
 }
 
 .btn-soft:hover {
@@ -79,7 +90,10 @@ a {
 .btn-like svg,
 .btn-soft svg {
   fill: var(--color-primary);
-  width: 1rem;
+}
+
+.profile-image {
+  max-width: 96px;
 }
 
 .user-image {
@@ -104,6 +118,9 @@ a {
   color: var(--bs-gray-700);
   pointer-events: none;
   display: block; /* For Firefox */
+}
+.modal-content .tweet-content [contentEditable] {
+  min-height: 4rem;
 }
 
 hr {
@@ -222,7 +239,8 @@ hr {
 }
 
 .trend-item span {
-  font-size: 0.6rem;
+  font-size: 0.7rem;
+  font-weight: 500;
 }
 
 input:focus-visible {
@@ -270,4 +288,39 @@ form svg {
   #bookmark-item {
     display: none;
   }
+}
+
+#profile-info {
+  position: relative;
+  top: -4rem;
+}
+
+#profile-info .rounded-circle {
+  width: fit-content;
+}
+
+#profile-container {
+  margin-bottom: -4rem;
+}
+#profile-nav a {
+  position: relative;
+}
+
+#profile-nav a::after {
+  display: none;
+  content: "";
+  height: 4px;
+  background-color: var(--color-primary);
+  border-radius: 20px;
+  width: 60%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+#profile-nav a:hover:after {
+  display: block;
+  isolation: isolate;
 }
