@@ -1,3 +1,20 @@
+main {
+  min-height: 100vh;
+}
+
+#landingImage {
+  background-image: url("https://abs.twimg.com/sticky/illustrations/lohp_en_1302x955.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+#landingImage svg {
+  max-height: 380px;
+  height: 50%;
+  fill: #fff;
+}
+
 .bluecolor {
   color: #5aa4d6;
 }
