@@ -14,7 +14,7 @@ module.exports = async () => {
       username: faker.internet.userName(),
       password: "hola",
       bio: faker.lorem.paragraphs(2),
-      profilePhoto: faker.internet.avatar(),
+      profile: faker.internet.avatar(),
       // tweetList: [
       //   {
       //     type: Schema.Types.ObjectId,

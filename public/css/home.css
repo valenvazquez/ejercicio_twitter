@@ -23,7 +23,7 @@ main {
 }
 
 .left-sidebar {
-  flex: 0 1 250px;
+  flex: 0 1 260px;
 }
 
 @media (max-width: 1200px) {
@@ -39,7 +39,14 @@ main {
 }
 
 @media (max-width: 896px) {
-  .right-sidebar {
+  .right-sidebar,
+  #explore-icon {
+    display: none;
+  }
+}
+
+@media (min-width: 896px) {
+  #search-icon {
     display: none;
   }
 }
@@ -255,5 +262,12 @@ form svg {
 @media (max-width: 1200px) {
   #tweet-button {
     width: auto;
+  }
+}
+
+@media (max-height: 630px) {
+  #list-item,
+  #bookmark-item {
+    display: none;
   }
 }

@@ -1,6 +1,14 @@
 <nav
   id="sidebar"
-  class="pb-3 pe-3 flex-grow-1 d-flex flex-column align-items-center justify-content-between"
+  class="
+    pb-3
+    pe-3 pe-xl-5
+    flex-grow-1
+    d-flex
+    flex-column
+    align-items-center
+    justify-content-between
+  "
 >
   <div class="w-100">
     <ul class="nav flex-column align-items-end align-items-xl-start">
@@ -65,14 +73,17 @@
             align-items-center
           "
         >
-          <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-            class="r-18jsvk2 r-4qtqp9 r-yyyyoo r-lwhw9o r-dnmrzs r-bnwqim r-1plcrui r-lrvibr"
-          >
+          <svg viewBox="0 0 24 24" aria-label="search" id="search-icon">
             <g>
               <path
                 d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
+              ></path>
+            </g>
+          </svg>
+          <svg viewBox="0 0 24 24" aria-label="explore" id="explore-icon">
+            <g>
+              <path
+                d="M21 7.337h-3.93l.372-4.272c.036-.412-.27-.775-.682-.812-.417-.03-.776.27-.812.683l-.383 4.4h-6.32l.37-4.27c.037-.413-.27-.776-.68-.813-.42-.03-.777.27-.813.683l-.382 4.4H3.782c-.414 0-.75.337-.75.75s.336.75.75.75H7.61l-.55 6.327H3c-.414 0-.75.336-.75.75s.336.75.75.75h3.93l-.372 4.272c-.036.412.27.775.682.812l.066.003c.385 0 .712-.295.746-.686l.383-4.4h6.32l-.37 4.27c-.036.413.27.776.682.813l.066.003c.385 0 .712-.295.746-.686l.382-4.4h3.957c.413 0 .75-.337.75-.75s-.337-.75-.75-.75H16.39l.55-6.327H21c.414 0 .75-.336.75-.75s-.336-.75-.75-.75zm-6.115 7.826h-6.32l.55-6.326h6.32l-.55 6.326z"
               ></path>
             </g>
           </svg>
@@ -131,7 +142,7 @@
           <span class="mx-2 d-none d-xl-inline">Messages</span></a
         >
       </li>
-      <li class="nav-item mb-2">
+      <li class="nav-item mb-2" id="bookmark-item">
         <a
           class="
             btn
@@ -143,21 +154,17 @@
             align-items-center
           "
         >
-          <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-            class="r-18jsvk2 r-4qtqp9 r-yyyyoo r-lwhw9o r-dnmrzs r-bnwqim r-1plcrui r-lrvibr"
-          >
+          <svg viewBox="0 0 24 24" aria-label="bookmarks">
             <g>
               <path
                 d="M19.9 23.5c-.157 0-.312-.05-.442-.144L12 17.928l-7.458 5.43c-.228.164-.53.19-.782.06-.25-.127-.41-.385-.41-.667V5.6c0-1.24 1.01-2.25 2.25-2.25h12.798c1.24 0 2.25 1.01 2.25 2.25v17.15c0 .282-.158.54-.41.668-.106.055-.223.082-.34.082zM12 16.25c.155 0 .31.048.44.144l6.71 4.883V5.6c0-.412-.337-.75-.75-.75H5.6c-.413 0-.75.338-.75.75v15.677l6.71-4.883c.13-.096.285-.144.44-.144z"
               ></path>
             </g>
           </svg>
-          <span class="mx-2 d-none d-xl-inline">Saved</span></a
+          <span class="mx-2 d-none d-xl-inline">Bookmarks</span></a
         >
       </li>
-      <li class="nav-item mb-2">
+      <li class="nav-item mb-2" id="list-item">
         <a
           class="
             btn
@@ -171,9 +178,7 @@
         >
           <svg
             viewBox="0 0 24 24"
-            aria-hidden="true"
-            class="r-18jsvk2 r-4qtqp9 r-yyyyoo r-lwhw9o r-dnmrzs r-bnwqim r-1plcrui r-lrvibr"
-          >
+            aria-label="List"
             <g>
               <path
                 d="M19.75 22H4.25C3.01 22 2 20.99 2 19.75V4.25C2 3.01 3.01 2 4.25 2h15.5C20.99 2 22 3.01 22 4.25v15.5c0 1.24-1.01 2.25-2.25 2.25zM4.25 3.5c-.414 0-.75.337-.75.75v15.5c0 .413.336.75.75.75h15.5c.414 0 .75-.337.75-.75V4.25c0-.413-.336-.75-.75-.75H4.25z"
@@ -269,7 +274,7 @@
   >
     <div class="d-flex">
       <div class="pe-xl-1">
-        <img src="<%= user.profilePhoto %> " alt="Avatar image" class="img-fluid user-image" />
+        <img src="<%= user.profile %> " alt="Avatar image" class="img-fluid user-image" />
       </div>
       <div class="px-1 d-none d-xl-flex flex-column justify-content-center">
         <a class="fw-bold fs-7 text-black"><%= user.firstname + " " + user.lastname %> </a>

@@ -5,7 +5,7 @@ async function showHome(req, res) {
   const tweets = await Tweet.find()
     .sort("-createdAt")
     .limit(20)
-    .populate({ path: "user", select: "firstname lastname username profilePhoto -_id" });
+    .populate({ path: "user", select: "firstname lastname username profile -_id" });
   res.render("home", { tweets, users });
 }
 
