@@ -3,6 +3,7 @@ const publicRouter = express.Router();
 const { User } = require("../models");
 const pagesController = require("../controllers/pagesController");
 const userController = require("../controllers/userController");
+const tweetController = require("../controllers/tweetController");
 
 publicRouter.get("/home", pagesController.showHome);
 
@@ -19,7 +20,7 @@ publicRouter.get("/:username");
 publicRouter.get("/:username/:tweetId");
 
 //crear el tweet
-publicRouter.post("/tweet");
+publicRouter.post("/tweet", tweetController.store);
 
 publicRouter.post("/register", userController.store);
 

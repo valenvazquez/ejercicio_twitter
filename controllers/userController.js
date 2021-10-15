@@ -23,18 +23,6 @@ async function store(req, res) {
   } catch (error) {
     res.render("landing", { errors: error.errors, user: user });
   }
-  // .catch((error) => {
-  //   return
-  // })
-  // .then(() => {
-  //   return req.login(user);
-  // })
-  // .then(() => {
-  //   return res.redirect("/");
-  // })
-  // .catch((error) => {
-  //   return next(error);
-  // });
 }
 
 // Show the form for editing the specified resource.

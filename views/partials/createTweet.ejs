@@ -8,6 +8,14 @@
     />
   </div>
   <div class="flex-fill overflow-auto">
+    <!-- form de tweet para reemplazar -->
+    <form action="/tweet" method="POST">
+      <div class="mb-3">
+        <label for="content" class="form-label">Nombre</label>
+        <input id="content" name="content" type="text" class="form-control" />
+      </div>
+      <button type="submit" class="btn btn-success">Actualizar</button>
+    </form>
     <div class="tweet-content overflow-auto">
       <div class="w-100 py-2 ps-2" contentEditable placeholder="What's happening?"></div>
     </div>
