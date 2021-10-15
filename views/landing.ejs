@@ -7,7 +7,7 @@
     <title>Landing / Twitter</title>
   </head>
   <body>
-    <%- include("partials/registerModal") %>
+    <%- include("partials/registerModal") %> <%- include("partials/loginModal") %>
     <main class="d-flex flex-column">
       <div class="row g-0 flex-grow-1">
         <div id="landingImage" class="col-6 d-flex justify-content-center align-items-center p-5">
@@ -19,32 +19,59 @@
             </g>
           </svg>
         </div>
-        <div id="registerPage" class="col-6 p-5 d-flex flex-column justify-content-center">
-          <i class="fab fa-twitter fa-2x bluecolor"></i>
-          <h1 class="mt-4 fw-bold">Happening now</h1>
-          <h3 class="mt-5 fw-bold">Join Twitter today.</h3>
-          <button type="button" class="linkLanding btn btn-light mt-4 d-block">
-            <img class="googleLogo" src="img/googleLogo.png" alt="" /> Sign up with Google
-          </button>
-          <button type="button" id="appleButton" class="linkLanding btn btn-light mt-3 d-block">
-            <i class="bi bi-apple"></i> Sign up with Apple
-          </button>
-          <button
-            type="button"
-            id="phoneButton"
-            data-bs-toggle="modal"
-            data-bs-target="#staticBackdrop"
-            class="linkLanding btn btn-light mt-3 d-block"
-          >
-            Sign up with your email
-          </button>
-          <p class="mt-2" id="textAgreement">
-            By signing up, you agree to the <a href="">Terms of Service</a> and
-            <a href="">Privacy Policy</a>, including <a href="">Cookie Use.</a>
-          </p>
-          <p class="d-inline" id="textSignIn">
-            Already have an account? <span style="color: #0d6efd">Sign in</span>
-          </p>
+        <div class="col-6 p-5 d-flex flex-column justify-content-center">
+          <!-- Register div -->
+          <div id="registerPage">
+            <i class="fab fa-twitter fa-2x bluecolor"></i>
+            <h1 class="mt-4 fw-bold">Happening now</h1>
+            <h3 class="mt-5 fw-bold">Join Twitter today.</h3>
+            <button type="button" class="linkLanding btn btn-light mt-4 d-block">
+              <img class="googleLogo" src="img/googleLogo.png" alt="" /> Sign up with Google
+            </button>
+            <button type="button" id="appleButton" class="linkLanding btn btn-light mt-3 d-block">
+              <i class="bi bi-apple"></i> Sign up with Apple
+            </button>
+            <button
+              type="button"
+              id="phoneButton"
+              data-bs-toggle="modal"
+              data-bs-target="#modalRegister"
+              class="linkLanding btn btn-light mt-3 d-block"
+            >
+              Sign up with your email
+            </button>
+            <p class="mt-2" id="textAgreement">
+              By signing up, you agree to the <a href="">Terms of Service</a> and
+              <a href="">Privacy Policy</a>, including <a href="">Cookie Use.</a>
+            </p>
+            <p class="d-inline" id="textSignIn">
+              Already have an account? <span style="color: #0d6efd">Sign in</span>
+            </p>
+          </div>
+          <!-- Login div -->
+          <div id="loginpage" class="g-0 p-0 d-none flex-column justify-content-center">
+            <i class="fab fa-twitter fa-2x bluecolor"></i>
+            <h1 class="mt-4 fw-bold">Happening now</h1>
+            <h3 class="mt-5 fw-bold">Sign in to Twitter</h3>
+            <button type="button" class="linkLanding btn btn-light mt-4 d-block">
+              <img class="googleLogo" src="img/googleLogo.png" alt="" /> Sign in with Google
+            </button>
+            <button type="button" id="appleButton" class="linkLanding btn btn-light mt-3 d-block">
+              <i class="bi bi-apple"></i> Sign in with Apple
+            </button>
+            <button
+              type="button"
+              id="phoneButton2"
+              data-bs-toggle="modal"
+              data-bs-target="#modalLogin"
+              class="linkLanding btn btn-light mt-3 mb-2 d-block"
+            >
+              Use phone, email, or username
+            </button>
+            <p class="d-inline" id="textSignUp">
+              Don´t have an account? <span style="color: #0d6efd">Sign up</span>
+            </p>
+          </div>
         </div>
       </div>
 
