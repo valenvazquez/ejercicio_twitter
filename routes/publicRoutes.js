@@ -14,7 +14,7 @@ publicRouter.get("/about-us");
 
 publicRouter.get("/");
 
-publicRouter.get("/:username");
+publicRouter.get("/:username", pagesController.showProfile);
 
 publicRouter.get("/:username/:tweetId");
 
