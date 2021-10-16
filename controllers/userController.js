@@ -4,16 +4,20 @@ const { User } = require("../models");
 async function index(req, res) {}
 
 // Display the specified resource.
-async function show(req, res) {}
-
-async function signup(req, res) {
-  res.render("pages/login", {
-    title: "Sign up",
-    user: new User(),
-  });
+async function show(req, res) {
+  try {
+    const user = await User.findOne({ username: req.params.username }).populate({
+      path: "tweets",
+    });
+    if (user) {
+      res.render("profilePage", { user });
+    } else {
+      res.redirect("/home");
+    }
+  } catch (error) {
+    console.log(error);
+  }
 }
-
-async function signin(req, res) {}
 
 // Show the form for creating a new resource
 async function store(req, res) {
@@ -21,7 +25,7 @@ async function store(req, res) {
     const user = await User.create(req.body);
     req.login(user, () => res.redirect("/home"));
   } catch (error) {
-    res.render("landing", { errors: error.errors, user: user });
+    res.redirect("/landing");
   }
 }
 
@@ -40,9 +44,6 @@ async function edit(req, res) {
     res.redirect("/");
   });
 }
-
-// Display the specified resource.
-async function show(req, res) {}
 
 // Update the specified resource in storage.
 async function update(req, res) {}
@@ -68,6 +69,4 @@ module.exports = {
   store,
   update,
   destroy,
-  signup,
-  signin,
 };

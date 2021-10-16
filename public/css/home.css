@@ -171,6 +171,7 @@ hr {
   stroke: var(--bs-gray-600);
   stroke-width: 1.5px;
   fill: none;
+  transition: 1s;
 }
 .tweet-actions a {
   text-decoration: none;
@@ -323,4 +324,13 @@ form svg {
 #profile-nav a:hover:after {
   display: block;
   isolation: isolate;
+}
+
+.btn-like.liked svg {
+  fill: var(--color-like);
+  stroke: var(--color-like);
+}
+
+.btn-like.liked div + span {
+  color: var(--color-like);
 }

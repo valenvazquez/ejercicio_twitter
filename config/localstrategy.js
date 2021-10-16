@@ -9,13 +9,12 @@ module.exports = (passport) => {
     ) {
       try {
         const user = await User.findOne({ username });
-        //seguimos aca
-        if (user === null || !user.validatePassword(password)) {
-          return done(null, false, { message: "Incorrect credentials." });
+        if (user === null || !(await user.validatePassword(password))) {
+          return done(null, false);
         }
         return done(null, user);
       } catch (error) {
-        console.log(error);
+        return done(error);
       }
     }),
   );

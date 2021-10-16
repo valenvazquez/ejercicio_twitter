@@ -15,25 +15,6 @@ module.exports = async () => {
       password: "hola",
       bio: faker.lorem.paragraphs(2),
       profile: faker.internet.avatar(),
-      // tweetList: [
-      //   {
-      //     type: Schema.Types.ObjectId,
-      //     ref: "Tweet",
-      //   },
-      // ],
-      // likes: [Schema.Types.ObjectId],
-      // followers: [
-      //   {
-      //     type: Schema.Types.ObjectId,
-      //     ref: "User",
-      //   },
-      // ],
-      // following: [
-      //   {
-      //     type: Schema.Types.ObjectId,
-      //     ref: "User",
-      //   },
-      // ],
     });
   }
 

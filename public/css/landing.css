@@ -2,6 +2,10 @@ main {
   min-height: 100vh;
 }
 
+a {
+  text-decoration: none;
+}
+
 #landingImage {
   background-image: url("https://abs.twimg.com/sticky/illustrations/lohp_en_1302x955.png");
   background-repeat: no-repeat;
@@ -10,77 +14,36 @@ main {
 }
 
 #landingImage svg {
-  max-height: 380px;
-  height: 50%;
+  max-width: 380px;
+  width: 70%;
   fill: #fff;
-}
-
-.bluecolor {
-  color: #5aa4d6;
 }
 
 h1 {
   font-size: 4rem;
 }
 
-.linkLanding {
-  background-color: white;
-  border-radius: 24px;
-  border-style: solid;
-  border-color: rgb(221, 221, 221);
-  width: 20rem;
-  font-size: 0.8rem;
+.signButtons {
+  max-width: 300px;
 }
-
-.googleLogo {
-  width: 40px;
-}
-
-#appleButton {
-  font-weight: bold;
-}
-
-#phoneButton {
-  font-weight: bold;
-}
-
-#textAgreement {
-  font-size: 0.7rem;
-}
-
-#textAgreement a {
-  text-decoration: none;
-}
-
-#textSignIn {
-  font-size: 0.8rem;
-  display: inline;
-}
-
-#textSignIn a {
-  text-decoration: none;
-}
-
-#textSignUp {
-  font-size: 0.8rem;
-  display: inline;
-}
-
-#textSignUp a {
-  text-decoration: none;
-}
-
-#textAlready {
-  display: inline;
+.signButtons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0;
 }
 
 footer {
   background-color: rgb(230, 230, 230);
-  color: rgb(58, 57, 57);
   font-size: 0.7rem;
 }
 
 footer a {
   text-decoration: none;
+  color: rgb(58, 57, 57);
+}
+
+footer a:hover {
+  text-decoration: underline;
   color: rgb(58, 57, 57);
 }

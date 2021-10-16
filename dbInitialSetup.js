@@ -11,10 +11,10 @@ module.exports = async () => {
     .once("open", () => console.log("[Mongoose] Conexión con la base de datos establecida"))
     .on("error", (error) => console.log(error));
 
-  await User.deleteMany();
-  await Tweet.deleteMany();
-  await userSeeder();
-  await tweetSeeder();
-  await likeSeeder();
-  await followerSeeder();
+  // await User.deleteMany();
+  // await Tweet.deleteMany();
+  // await userSeeder();
+  // await tweetSeeder();
+  // await likeSeeder();
+  // await followerSeeder();
 };

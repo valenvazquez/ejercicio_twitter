@@ -5,16 +5,9 @@ async function showHome(req, res) {
   const tweets = await Tweet.find()
     .sort("-createdAt")
     .limit(20)
-    .populate({ path: "user", select: "firstname lastname username profile -_id" });
+    .populate({ path: "user", select: "firstname lastname username profile" });
+  const isLiked = tweets[0].likes.includes(req.user.id);
   res.render("home", { tweets, users });
-}
-
-async function showProfile(req, res) {
-  const tweets = await Tweet.find({ user: req.user })
-    .sort("-createdAt")
-    .limit(20)
-    .populate({ path: "user", select: "firstname lastname username profile -_id" });
-  res.render("profilePage", { tweets });
 }
 
 async function showContact(req, res) {
@@ -34,7 +27,6 @@ async function showLanding(req, res) {
 
 module.exports = {
   showHome,
-  showProfile,
   showAboutUs,
   showLanding,
 };
