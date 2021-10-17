@@ -13,7 +13,7 @@ module.exports = (app) => {
       store: MongoStore.create({
         mongoUrl: `mongodb://${process.env.DB_HOST}/${process.env.DB_DATABASE}`,
       }),
-      cookie: { maxAge: 1000 * 60 * 60 },
+      cookie: { maxAge: 1000 * 60 * 60 * 24 * 30 },
     }),
   );
   app.use(passport.initialize());

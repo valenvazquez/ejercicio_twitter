@@ -26,7 +26,12 @@
         </div>
         <div class="flex-fill overflow-auto">
           <div class="tweet-content overflow-auto">
-            <div class="w-100 py-2 ps-2" contentEditable placeholder="What's happening?"></div>
+            <div
+              id="new-tweet-content-modal"
+              class="w-100 py-2 ps-2"
+              contentEditable="true"
+              placeholder="What's happening?"
+            ></div>
           </div>
           <a
             class="
@@ -168,9 +173,14 @@
                 </svg>
               </a>
             </div>
-            <a class="btn btn-primary rounded-pill fw-bold fs-7" href="#" data-bs-dismiss="modal"
-              >Tweet</a
+            <button
+              id="tweet-post-modal"
+              class="py-2 px-3 btn-primary rounded-pill fw-bold fs-7 border-0"
+              disabled
+              data-bs-dismiss="modal"
             >
+              Tweet
+            </button>
           </div>
         </div>
       </div>

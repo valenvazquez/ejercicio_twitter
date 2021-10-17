@@ -35,9 +35,10 @@
         </div>
         <!-- Create Tweet Form -->
         <%- include("partials/createTweet") %>
-
-        <!-- Tweets -->
-        <% for( tweet of tweets) { %> <%- include("partials/tweet", {tweet}) %> <% } %>
+        <div id="tweets-section">
+          <!-- Tweets -->
+          <% for( tweet of tweets) { %> <%- include("partials/tweet", {tweet}) %> <% } %>
+        </div>
       </main>
 
       <!-- Right Column -->

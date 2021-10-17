@@ -89,6 +89,7 @@
           <span class="mx-2 d-none d-xl-inline">Explorar</span></a
         >
       </li>
+      <% if (user) { %>
       <li class="nav-item mb-2">
         <a
           class="
@@ -190,6 +191,7 @@
       </li>
       <li class="nav-item mb-2">
         <a
+          href="/<%= user.username %> "
           class="
             btn
             text-dark
@@ -258,6 +260,7 @@
           ><span class="mx-2 d-none d-xl-inline">Tweet</span></a
         >
       </li>
+      <% } %>
     </ul>
   </div>
   <% if (user) { %>

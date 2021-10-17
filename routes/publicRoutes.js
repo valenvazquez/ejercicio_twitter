@@ -8,34 +8,28 @@ const likeController = require("../controllers/likeController");
 const authController = require("../controllers/authController");
 const redirectIfAuthenticated = require("../middlewares/redirectIfAuthenticated");
 
+// ---------- PAGES ------------ //
 publicRouter.get("/home", pagesController.showHome);
-
 publicRouter.get("/", redirectIfAuthenticated, pagesController.showLanding);
-
 publicRouter.get("/about-us");
 
+// ---------- USERS ------------ //
 publicRouter.get("/:username", userController.show);
-
-publicRouter.get("/:username/:tweetId");
-
-//crear el tweet
-publicRouter.post("/tweet", tweetController.store);
-
 publicRouter.post("/register", userController.store);
-
-publicRouter.post("/tweet/like/:id", likeController.store);
-
 publicRouter.post("/login", authController.logIn);
-
-publicRouter.delete("/tweet/:id");
-
 publicRouter.delete("/:username");
-
-publicRouter.delete("/tweet/like/:id");
-
 publicRouter.patch("/:username");
 
-// API routes
+// ---------- TWEETS ------------ //
+publicRouter.get("/:username/:tweetId");
+publicRouter.post("/tweet", tweetController.store);
+publicRouter.delete("/tweet/:id");
+
+// ---------- LIKES ------------ //
+publicRouter.post("/tweet/like/:id", likeController.store);
+publicRouter.delete("/tweet/like/:id", likeController.destroy);
+
+// ---------- APIs ------------ //
 publicRouter.get("/api/user_data", function (req, res) {
   if (!req.user) {
     // The user is not logged in

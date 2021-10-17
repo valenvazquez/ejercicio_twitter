@@ -8,16 +8,13 @@
     />
   </div>
   <div class="flex-fill overflow-auto">
-    <!-- form de tweet para reemplazar -->
-    <form action="/tweet" method="POST">
-      <div class="mb-3">
-        <label for="content" class="form-label">Nombre</label>
-        <input id="content" name="content" type="text" class="form-control" />
-      </div>
-      <button type="submit" class="btn btn-success">Actualizar</button>
-    </form>
     <div class="tweet-content overflow-auto">
-      <div class="w-100 py-2 ps-2" contentEditable placeholder="What's happening?"></div>
+      <div
+        id="new-tweet-content"
+        class="w-100 py-2 ps-2"
+        contentEditable="true"
+        placeholder="What's happening?"
+      ></div>
     </div>
     <a
       class="
@@ -132,7 +129,7 @@
           </svg>
         </a>
         <a
-          href="#"
+          href=""
           class="
             btn-soft
             rounded-circle
@@ -159,7 +156,13 @@
           </svg>
         </a>
       </div>
-      <a class="py-2 px-3 btn-primary rounded-pill fw-bold fs-7" href="#">Tweet</a>
+      <button
+        class="py-2 px-3 btn-primary rounded-pill fw-bold fs-7 border-0"
+        id="tweet-post"
+        disabled
+      >
+        Tweet
+      </button>
     </div>
   </div>
 </div>

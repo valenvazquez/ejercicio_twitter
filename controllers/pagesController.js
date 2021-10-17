@@ -6,7 +6,6 @@ async function showHome(req, res) {
     .sort("-createdAt")
     .limit(20)
     .populate({ path: "user", select: "firstname lastname username profile" });
-  const isLiked = tweets[0].likes.includes(req.user.id);
   res.render("home", { tweets, users });
 }
 

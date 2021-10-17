@@ -109,17 +109,17 @@ a {
   max-height: 60vh;
 }
 
-.tweet-content [contentEditable]:focus-visible {
+.tweet-content [contentEditable="true"]:focus-visible {
   outline: none;
 }
 
-.tweet-content [contentEditable]:empty:before {
+.tweet-content [contentEditable="true"]:empty:before {
   content: attr(placeholder);
   color: var(--bs-gray-700);
   pointer-events: none;
   display: block; /* For Firefox */
 }
-.modal-content .tweet-content [contentEditable] {
+.modal-content .tweet-content [contentEditable="true"] {
   min-height: 4rem;
 }
 
@@ -333,4 +333,19 @@ form svg {
 
 .btn-like.liked div + span {
   color: var(--color-like);
+}
+
+.newTweet {
+  animation: fadeIn 0.6s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
 }
