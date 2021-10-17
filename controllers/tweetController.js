@@ -6,12 +6,12 @@ async function show(req, res) {}
 // Store a newly created resource in storage.
 async function store(req, res) {
   try {
-    const content = req.body.content;
-    const tweet = new Tweet({
-      content,
+    const tweet = await Tweet.create({
+      content: req.body.content,
       user: req.user,
     });
-    await tweet.save();
+    req.user.tweets.push(tweet._id);
+    await req.user.save();
     res.json(tweet);
   } catch (error) {
     console.log(error);

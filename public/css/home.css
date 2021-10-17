@@ -321,7 +321,7 @@ form svg {
   margin: 0 auto;
 }
 
-#profile-nav a:hover:after {
+#profile-nav a.active:after {
   display: block;
   isolation: isolate;
 }

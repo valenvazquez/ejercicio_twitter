@@ -8,6 +8,9 @@ async function show(req, res) {
   try {
     const user = await User.findOne({ username: req.params.username }).populate({
       path: "tweets",
+      populate: {
+        path: "user",
+      },
     });
     if (user) {
       res.render("profilePage", { user });
