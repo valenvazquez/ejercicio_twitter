@@ -6,6 +6,12 @@ const logIn = passport.authenticate("local", {
   failureRedirect: "/",
 });
 
+function logOut(req, res) {
+  req.logout();
+  res.redirect("/landing");
+}
+
 module.exports = {
   logIn,
+  logOut,
 };
