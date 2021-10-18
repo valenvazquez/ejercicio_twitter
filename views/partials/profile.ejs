@@ -1,5 +1,5 @@
 <section class="container-fluid p-0" style="min-height: 100vh">
-  <div class="border-bottom px-3 py-3 d-flex align-items-center sticky-top bg-white">
+  <div class="border-bottom px-3 py-2 d-flex align-items-center sticky-top bg-white">
     <a
       href="/home"
       class="btn-gray rounded-circle p-2 d-flex justify-content-center align-items-center"
@@ -50,11 +50,17 @@
             <circle cx="12" cy="17.486" r="1.285"></circle>
           </g>
         </svg>
-        <span class="ms-1">Joined <%= thisUser.createdAt.toLocaleDateString('en-US', { month: 'long',year: 'numeric'}) %></span>
+        <span class="ms-1"
+          >Joined <%= thisUser.createdAt.toLocaleDateString('en-US', { month: 'long',year:
+          'numeric'}) %></span
+        >
       </p>
       <p class="mt-1">
         <span class="text-muted fs-7 me-2"
-          ><span class="text-black fw-bold"><%= thisUser.following.length %> </span> Following</span
+          ><span class="text-black fw-bold" id="following-count"
+            ><%= thisUser.following.length %>
+          </span>
+          Following</span
         >
         <span class="text-muted fs-7 me-2"
           ><span class="text-black fw-bold"><%= thisUser.followers.length %> </span> Followers</span
@@ -68,19 +74,11 @@
         class="px-3 py-2 fw-bold fs-7 btn-outline-secondary rounded-pill follow-edit-button"
         >Edit profile</a
       >
-      <% } else { %> 
-      <a
-        href="/follow/<%= thisUser.id %>"
-        id="unfollow"
-        class="px-3 py-2 fw-bold fs-7 rounded-pill follow-edit-button <%= user.following.includes(thisUser.id) ? null : "d-none" %>">
-        </a> 
-      <a
-        href="/follow/<%= thisUser.id %>"
-        id="follow"
-        class="px-3 py-2 fw-bold fs-7 rounded-pill follow-edit-button <%= user.following.includes(thisUser.id) ? "d-none" : null %>"
-        >Follow</a
-      >
- <% } %>
+      <% } else { %> <a href="/follow/<%= thisUser.id %>" class="unfollow px-3 py-2 fw-bold fs-7
+      rounded-pill follow-edit-button <%= user.following.includes(thisUser.id) ? null : "d-none"
+      %>"> <a href="/follow/<%= thisUser.id %>" class="follow px-3 py-2 fw-bold fs-7 rounded-pill
+      follow-edit-button <%= user.following.includes(thisUser.id) ? "d-none" : null %>" >Follow <% }
+      %>
     </div>
   </div>
   <!-- Navigation -> Tweets - Tweets & Replies - Media - Likes  -->
@@ -93,6 +91,8 @@
     <a class="flex-grow-1 btn-gray btn rounded-0 fs-7 fw-600 py-3 text-secondary">Likes</a>
   </div>
   <!-- Tweets -->
-  <% if (thisUser.tweets.length > 0) { %> <% for( const tweet of thisUser.tweets) { %> <%-
-  include("../partials/tweet", {tweet}) %> <% } %> <% } %>
+  <div id="tweets-section">
+    <% if (thisUser.tweets.length > 0) { %> <% for( const tweet of thisUser.tweets) { %> <%-
+    include("../partials/tweet", {tweet}) %> <% } %> <% } %>
+  </div>
 </section>
