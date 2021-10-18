@@ -89,8 +89,8 @@
         </div>
       </a>
       <!-- LIKES -->
-      <a class=" btn-like d-inline-flex align-items-center fs-7 <%= tweet.likes.includes(user.id) ?
-      "liked" : null %> " href="/tweet/like/<%= tweet.id %>" >
+      <a class=" btn-like d-inline-flex align-items-center fs-7 
+      <%= tweet.likes.includes(user.id) ? "liked" : null %> " href="/tweet/like/<%= tweet.id %>" >
       <div
         class="rounded-circle p-2 d-inline-flex justify-content-center align-items-center me-lg-1"
       >
@@ -101,7 +101,7 @@
             ></path>
           </g>
         </svg>
-      </div>
+      </div></a>
       <!-- SHARE -->
       <a href="#" class="btn-soft d-inline-flex align-items-center fs-7"
         ><div

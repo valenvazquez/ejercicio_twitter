@@ -7,17 +7,16 @@ for (const btn of likeButtons) {
 async function likeDislike(e) {
   e.preventDefault();
   e.stopPropagation();
+  const likesCount = this.querySelector(".likes-count") || document.querySelector("#likes-count");
   if (this.classList.contains("liked")) {
+    likesCount ? likesCount.innerHTML-- : null;
+    this.classList.toggle("liked");
     await axios.delete(this.href);
-    this.lastChild.innerHTML--;
-    // document.querySelector("#likes-count").innerHTML--;
   } else {
+    likesCount ? likesCount.innerHTML++ : null;
+    this.classList.toggle("liked");
     await axios.post(this.href);
-    this.lastChild.innerHTML++;
-
-    // document.querySelector("#likes-count").innerHTML--;
   }
-  this.classList.toggle("liked");
 }
 
 // ---------- TWEET BUTTON EVENTS -------------- //
