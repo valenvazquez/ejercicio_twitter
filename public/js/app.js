@@ -188,10 +188,14 @@ if (followBtn) {
     btn.addEventListener("click", async function (e) {
       e.stopPropagation();
       e.preventDefault();
-      const user = await axios.post(btn.href);
       btn.classList.add("d-none");
       unfollowBtn[i].classList.remove("d-none");
-      document.querySelector("#following-count").innerHTML++;
+      const user = await axios.post(btn.href);
+      try {
+        document.querySelector("#following-count").innerHTML++;
+      } catch (error) {
+        console.log(error);
+      }
     });
   });
 }
@@ -201,10 +205,14 @@ if (unfollowBtn) {
     btn.addEventListener("click", async function (e) {
       e.stopPropagation();
       e.preventDefault();
-      const user = await axios.delete(btn.href);
       btn.classList.add("d-none");
       followBtn[i].classList.remove("d-none");
-      document.querySelector("#following-count").innerHTML--;
+      const user = await axios.delete(btn.href);
+      try {
+        document.querySelector("#following-count").innerHTML--;
+      } catch (error) {
+        console.log(error);
+      }
     });
   });
 }
