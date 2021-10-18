@@ -1,4 +1,4 @@
-<h1>Clon project of Twitter </h1>
+<h1>Clone project of Twitter </h1>
 
 <strong>Team:</strong>  Valentin Vazquez, Jonathan Boublil, Ignacio Nin
 
