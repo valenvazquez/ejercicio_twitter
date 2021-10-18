@@ -75,10 +75,10 @@
         >Edit profile</a
       >
       <% } else { %> <a href="/follow/<%= thisUser.id %>" class="unfollow px-3 py-2 fw-bold fs-7
-      rounded-pill follow-edit-button <%= user.following.includes(thisUser.id) ? null : "d-none"
-      %>"> <a href="/follow/<%= thisUser.id %>" class="follow px-3 py-2 fw-bold fs-7 rounded-pill
-      follow-edit-button <%= user.following.includes(thisUser.id) ? "d-none" : null %>" >Follow <% }
-      %>
+      rounded-pill follow-edit-button <%= user.following.includes(thisUser.id) ? null : "d-none" %>"></a> 
+      <a href="/follow/<%= thisUser.id %>" class="follow px-3 py-2 fw-bold fs-7 rounded-pill
+      follow-edit-button <%= user.following.includes(thisUser.id) ? "d-none" : null %>" >Follow</a>
+       <% } %>
     </div>
   </div>
   <!-- Navigation -> Tweets - Tweets & Replies - Media - Likes  -->

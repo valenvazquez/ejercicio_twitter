@@ -22,8 +22,8 @@ const userSchema = new Schema(
       type: String,
       validate: {
         validator: async function (username) {
-          const user = await this.constructor.findOne({ username });
-          return username !== "home" && username !== "about-us" && !user;
+          // const user = await this.constructor.findOne({ username });
+          return username !== "home" && username !== "about-us"; // && !user
         },
         //  message: (props) => `${props.value} is already in use.`,
       },
@@ -48,22 +48,22 @@ const userSchema = new Schema(
       {
         type: Schema.Types.ObjectId,
         ref: "User",
-        // validate: {
-        //   validator: async function (userId) {
-        //     return !this.followers.includes(userId);
-        //   },
-        // },
+        validate: {
+          validator: function (userId) {
+            return !this.followers.includes(userId);
+          },
+        },
       },
     ],
     following: [
       {
         type: Schema.Types.ObjectId,
         ref: "User",
-        // validate: {
-        //   validator: async function (userId) {
-        //     return !this.following.includes(userId);
-        //   },
-        // },
+        validate: {
+          validator: function (userId) {
+            return !this.following.includes(userId);
+          },
+        },
       },
     ],
   },

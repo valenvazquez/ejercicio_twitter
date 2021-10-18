@@ -11,7 +11,7 @@ module.exports = (app) => {
       resave: false, // Docs: "The default value is true, but using the default has been deprecated".
       saveUninitialized: false, // Docs: "The default value is true, but using the default has been deprecated".
       store: MongoStore.create({
-        mongoUrl: `mongodb://${process.env.DB_HOST}/${process.env.DB_DATABASE}`,
+        mongoUrl: process.env.DB_CONNECTION_STRING,
       }),
       cookie: { maxAge: 1000 * 60 * 60 * 24 * 30 },
     }),

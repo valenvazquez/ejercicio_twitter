@@ -13,8 +13,7 @@ const tweetSchema = new Schema(
         type: Schema.Types.ObjectId,
         ref: "User",
         validate: {
-          validator: async function (userId) {
-            console.log(this.likes.includes(userId));
+          validator: function (userId) {
             return !this.likes.includes(userId);
           },
         },
