@@ -13,13 +13,16 @@
       </svg>
     </a>
     <div class="d-flex flex-column justify-content-center ms-3">
-      <h2 class="fs-6 m-0 fw-bold"><%= user.firstname + " " + user.lastname %></h2>
-      <span class="text-muted fs-8"><%= user.tweets.length %> Tweets</span>
+      <h2 class="fs-6 m-0 fw-bold"><%= thisUser.firstname + " " + thisUser.lastname %></h2>
+      <span class="text-muted fs-8"><%= thisUser.tweets.length %> Tweets</span>
     </div>
   </div>
 
   <header class="bg-secondary" style="height: 200px"></header>
-  <div class="d-flex justify-content-between align-content-start p-3" id="profile-container">
+  <div
+    class="d-flex justify-content-between align-content-start p-3 position-relative"
+    id="profile-container"
+  >
     <div class="d-flex flex-column justify-content-center" id="profile-info">
       <div class="rounded-circle p-1 bg-white">
         <img
@@ -28,9 +31,9 @@
           class="img-fluid rounded-circle profile-image"
         />
       </div>
-      <h2 class="fw-bolder fs-6"><%= user.firstname + " " + user.lastname %></h2>
-      <p class="text-muted m-0 fs-7">@<%= user.username %></p>
-      <p class="my-1 fs-7"><%= user.bio %></p>
+      <h2 class="fw-bolder fs-6"><%= thisUser.firstname + " " + thisUser.lastname %></h2>
+      <p class="text-muted m-0 fs-7">@<%= thisUser.username %></p>
+      <p class="my-1 fs-7"><%= thisUser.bio %></p>
       <p class="text-muted m-0 fs-7">
         <svg viewBox="0 0 24 24">
           <g>
@@ -47,19 +50,37 @@
             <circle cx="12" cy="17.486" r="1.285"></circle>
           </g>
         </svg>
-        <span class="ms-1">Joined April 2013 (arreglar)</span>
+        <span class="ms-1">Joined <%= thisUser.createdAt.toLocaleDateString('en-US', { month: 'long',year: 'numeric'}) %></span>
       </p>
       <p class="mt-1">
         <span class="text-muted fs-7 me-2"
-          ><span class="text-black fw-bold"><%= user.following.length %> </span> Following</span
+          ><span class="text-black fw-bold"><%= thisUser.following.length %> </span> Following</span
         >
         <span class="text-muted fs-7 me-2"
-          ><span class="text-black fw-bold"><%= user.followers.length %> </span> Followers</span
+          ><span class="text-black fw-bold"><%= thisUser.followers.length %> </span> Followers</span
         >
       </p>
     </div>
     <div>
-      <a href="#" class="px-3 py-2 fw-bold fs-7 btn-outline-secondary rounded-pill">Edit profile</a>
+      <% if (thisUser.username === user.username) { %>
+      <a
+        href="#"
+        class="px-3 py-2 fw-bold fs-7 btn-outline-secondary rounded-pill follow-edit-button"
+        >Edit profile</a
+      >
+      <% } else { %> 
+      <a
+        href="/follow/<%= thisUser.id %>"
+        id="unfollow"
+        class="px-3 py-2 fw-bold fs-7 rounded-pill follow-edit-button <%= user.following.includes(thisUser.id) ? null : "d-none" %>">
+        </a> 
+      <a
+        href="/follow/<%= thisUser.id %>"
+        id="follow"
+        class="px-3 py-2 fw-bold fs-7 rounded-pill follow-edit-button <%= user.following.includes(thisUser.id) ? "d-none" : null %>"
+        >Follow</a
+      >
+ <% } %>
     </div>
   </div>
   <!-- Navigation -> Tweets - Tweets & Replies - Media - Likes  -->
@@ -72,6 +93,6 @@
     <a class="flex-grow-1 btn-gray btn rounded-0 fs-7 fw-600 py-3 text-secondary">Likes</a>
   </div>
   <!-- Tweets -->
-  <% if (user.tweets.length > 0) { %> <% for( const tweet of user.tweets) { %> <%-
+  <% if (thisUser.tweets.length > 0) { %> <% for( const tweet of thisUser.tweets) { %> <%-
   include("../partials/tweet", {tweet}) %> <% } %> <% } %>
 </section>

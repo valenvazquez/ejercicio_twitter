@@ -13,7 +13,7 @@ async function show(req, res) {
       },
     });
     if (user) {
-      res.render("profilePage", { user });
+      res.render("profilePage", { thisUser: user });
     } else {
       res.redirect("/home");
     }
@@ -64,6 +64,31 @@ async function destroy(req, res) {
   });
 }
 
+async function follow(req, res) {
+  const user = await User.findByIdAndUpdate(
+    req.params.id,
+    { $push: { followers: req.user } },
+    { new: true },
+  );
+  req.user.following.push(user._id);
+  await req.user.save();
+  res.json({ user: req.user, followed_user: user });
+}
+
+async function unfollow(req, res) {
+  try {
+    const user = await User.findByIdAndUpdate(
+      req.params.id,
+      { $pull: { followers: req.user._id } },
+      { new: true },
+    );
+    await User.findByIdAndUpdate(req.user.id, { $pull: { following: user._id } });
+    res.json({ unfollowed_user: user });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 // Otros handlers...
 // ...
 
@@ -72,4 +97,6 @@ module.exports = {
   store,
   update,
   destroy,
+  follow,
+  unfollow,
 };

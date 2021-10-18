@@ -23,7 +23,7 @@
             align-items-center
             p-2
           "
-          href="#"
+          href="/home"
           ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path
               d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574
@@ -38,6 +38,7 @@
       </li>
       <li class="nav-item mb-2">
         <a
+          href="/home"
           class="
             btn btn-gray
             text-dark
@@ -264,34 +265,77 @@
     </ul>
   </div>
   <% if (user) { %>
-  <div
-    class="
-      d-flex
-      align-items-center
-      justify-content-center justify-content-xl-between
-      w-100
-      p-2
-      rounded-pill
-      btn-gray
-      me-xl-2
-    "
-  >
-    <div class="d-flex">
-      <div class="pe-xl-1">
-        <img src="<%= user.profile %> " alt="Avatar image" class="img-fluid user-image" />
+  <div class="dropup">
+    <div
+      type="button"
+      class="
+        d-flex
+        align-items-center
+        justify-content-center justify-content-xl-between
+        w-100
+        p-2
+        rounded-pill
+        btn-gray
+        me-xl-2
+      "
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      <div class="d-flex">
+        <div class="pe-xl-1">
+          <img src="<%= user.profile %> " alt="Avatar image" class="img-fluid user-image" />
+        </div>
+        <div class="px-1 d-none d-xl-flex flex-column justify-content-center">
+          <a class="fw-bold fs-7 text-black"><%= user.firstname + " " + user.lastname %> </a>
+          <p class="text-muted m-0 fs-7">@<%= user.username %></p>
+        </div>
       </div>
-      <div class="px-1 d-none d-xl-flex flex-column justify-content-center">
-        <a class="fw-bold fs-7 text-black"><%= user.firstname + " " + user.lastname %> </a>
-        <p class="text-muted m-0 fs-7">@<%= user.username %></p>
+      <svg viewBox="0 0 24 24" class="d-none d-xl-inline">
+        <g>
+          <circle cx="5" cy="12" r="2"></circle>
+          <circle cx="12" cy="12" r="2"></circle>
+          <circle cx="19" cy="12" r="2"></circle>
+        </g>
+      </svg>
+    </div>
+    <div class="dropdown-menu border-0 shadow rounded-4 mb-2 py-3 logout-menu">
+      <div
+        class="
+          d-flex
+          align-items-center
+          justify-content-center justify-content-xl-between
+          w-100
+          p-2
+          me-xl-2
+        "
+      >
+        <div class="d-flex">
+          <div class="pe-xl-1">
+            <img src="<%= user.profile %> " alt="Avatar image" class="img-fluid user-image" />
+          </div>
+          <div class="px-1 d-none d-xl-flex flex-column justify-content-center">
+            <a class="fw-bold fs-7 text-black"><%= user.firstname + " " + user.lastname %> </a>
+            <p class="text-muted m-0 fs-7">@<%= user.username %></p>
+          </div>
+        </div>
+        <svg viewBox="0 0 24 24" style="fill: var(--color-primary)">
+          <g>
+            <path
+              d="M9 20c-.264 0-.52-.104-.707-.293l-4.785-4.785c-.39-.39-.39-1.023 0-1.414s1.023-.39 1.414 0l3.946 3.945L18.075 4.41c.32-.45.94-.558 1.395-.24.45.318.56.942.24 1.394L9.817 19.577c-.17.24-.438.395-.732.42-.028.002-.057.003-.085.003z"
+            ></path>
+          </g>
+        </svg>
+      </div>
+      <hr class="mb-0" />
+      <div class="list-group">
+        <a class="btn-gray fs-7 px-2 py-3 text-dark">Add an existing account</a>
+        <form action="/logout" method="POST">
+          <button type="submit" class="w-100 btn-gray fs-7 px-2 py-3 text-dark">
+            Log out @<%= user.username %>
+          </button>
+        </form>
       </div>
     </div>
-    <svg viewBox="0 0 24 24" class="d-none d-xl-inline">
-      <g>
-        <circle cx="5" cy="12" r="2"></circle>
-        <circle cx="12" cy="12" r="2"></circle>
-        <circle cx="19" cy="12" r="2"></circle>
-      </g>
-    </svg>
   </div>
   <% } %>
 </nav>

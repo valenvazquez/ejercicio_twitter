@@ -37,7 +37,7 @@
         <%- include("partials/createTweet") %>
         <div id="tweets-section">
           <!-- Tweets -->
-          <% for( tweet of tweets) { %> <%- include("partials/tweet", {tweet}) %> <% } %>
+          <% for(const tweet of tweets) { %> <%- include("partials/tweet", {tweet}) %> <% } %>
         </div>
       </main>
 

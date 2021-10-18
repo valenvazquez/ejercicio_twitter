@@ -2,37 +2,39 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const bcrypt = require("bcryptjs");
 
-const userSchema = new Schema({
-  firstname: String,
-  lastname: String,
-  email: String,
-  username: String,
-  password: String,
-  bio: String,
-  profile: {
-    type: String,
-    default: "https://abs.twimg.com/sticky/default_profile_images/default_profile_x96.png",
+const userSchema = new Schema(
+  {
+    firstname: String,
+    lastname: String,
+    email: String,
+    username: String,
+    password: String,
+    bio: String,
+    profile: {
+      type: String,
+      default: "https://abs.twimg.com/sticky/default_profile_images/default_profile_x96.png",
+    },
+    tweets: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Tweet",
+      },
+    ],
+    followers: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
+    following: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
   },
-  tweets: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Tweet",
-    },
-  ],
-  // likes: [Schema.Types.ObjectId],
-  followers: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "User",
-    },
-  ],
-  following: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "User",
-    },
-  ],
-});
+  { timestamps: true },
+);
 
 userSchema.pre("save", async function (next) {
   this.password = await bcrypt.hash(this.password, 10);

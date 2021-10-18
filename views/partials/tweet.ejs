@@ -1,16 +1,16 @@
 <!-- Tweet -->
 <article class="tweet p-3 d-flex border-bottom">
   <div class="me-3 flex-shrink-0">
-    <img src="<%= tweet.user.profile %> " alt="No avatar image" class="img-fluid user-image" />
+    <img src="<%= tweet.user.profile %> " alt="<%= tweet.user.username + " Avatar" %> " class="img-fluid user-image" />
   </div>
   <div class="flex-fill">
     <div class="d-flex justify-content-between align-items-center mb-1">
-      <h3 class="fs-7 fw-bold m-0">
-        <%= tweet.user.firstname + " " + tweet.user.lastname %><span
+      <a href="/<%= tweet.user.username %>" class="fs-7 fw-bold m-0 text-black"><span class="user-link">
+        <%= tweet.user.firstname + " " + tweet.user.lastname %></span><span
           class="fw-normal text-secondary ms-1"
           >@<%= tweet.user.username %> &middot; 1m</span
         >
-      </h3>
+      </a>
       <a
         href="#"
         class="btn-soft rounded-circle d-inline-flex justify-content-center align-items-center p-1"

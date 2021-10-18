@@ -1,5 +1,4 @@
 const passport = require("passport");
-const { User } = require("../models");
 
 const logIn = passport.authenticate("local", {
   successRedirect: "/home",
@@ -8,7 +7,7 @@ const logIn = passport.authenticate("local", {
 
 function logOut(req, res) {
   req.logout();
-  res.redirect("/landing");
+  res.redirect("/");
 }
 
 module.exports = {

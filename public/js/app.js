@@ -175,7 +175,25 @@ function addNewTweet(tweet) {
   tweetContentModal.innerText = "";
 }
 
-async function getUser() {
-  const { data } = await axios.get("/api/user_data");
-  return data.user;
+// -------------------- FOLLOW / UNFOLLOW ------------------------ //
+const followBtn = document.querySelector("#follow");
+const unfollowBtn = document.querySelector("#unfollow");
+
+if (followBtn) {
+  followBtn.addEventListener("click", async function (e) {
+    e.preventDefault();
+    const user = await axios.post(followBtn.href);
+    followBtn.classList.add("d-none");
+    unfollowBtn.classList.remove("d-none");
+  });
+}
+
+if (unfollowBtn) {
+  unfollowBtn.addEventListener("click", async function (e) {
+    e.preventDefault();
+    console.dir(unfollowBtn);
+    const user = await axios.delete(unfollowBtn.href);
+    followBtn.classList.remove("d-none");
+    unfollowBtn.classList.add("d-none");
+  });
 }

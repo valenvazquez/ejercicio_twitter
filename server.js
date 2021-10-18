@@ -8,7 +8,6 @@ const passportConfig = require("./config");
 const methodOverride = require("method-override");
 const localVariable = require("./middlewares/localVariables");
 
-dbInitialSetup();
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -29,8 +28,7 @@ app.use(
 );
 
 routes(app);
-
-// dbInitialSetup(); // Crea tablas e inserta datos de prueba.
+dbInitialSetup();
 
 app.listen(APP_PORT, () =>
   console.log(`\n[Express] Servidor corriendo en el puerto ${APP_PORT}!\n`),
