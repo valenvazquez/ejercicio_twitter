@@ -7,7 +7,27 @@ const userSchema = new Schema(
     firstname: String,
     lastname: String,
     email: String,
-    username: String,
+    username: {
+      type: String,
+      validate: {
+        validator: async function (username) {
+          const user = await this.constructor.findOne({ username });
+          console.log(user.username);
+          if (user || user.username !== "home" || user.username !== "about-us") {
+            console.log("1er if");
+            console.log(user.username);
+            if (this.id === user.id) {
+              console.log("2ndo if");
+              return true;
+            }
+            return false;
+          }
+          return true;
+        },
+        message: (props) => `${props.value} is already in use.`,
+      },
+      required: [true, "User username required"],
+    },
     password: String,
     bio: String,
     profile: {
@@ -35,6 +55,25 @@ const userSchema = new Schema(
   },
   { timestamps: true },
 );
+
+// userSchema.path("username").validate(function (value, respond) {
+//   var self = this;
+//   return this.constructor
+//     .findOneAsync({ username: value })
+//     .then(function (username) {
+//       if (username) {
+//         if (self.username === user.username) {
+//           console.log(user.username);
+//           return respond(true);
+//         }
+//         return respond(false);
+//       }
+//       return respond(true);
+//     })
+//     .catch(function (err) {
+//       throw err;
+//     });
+// }, "The specified username is already in use.");
 
 userSchema.pre("save", async function (next) {
   this.password = await bcrypt.hash(this.password, 10);
