@@ -28,7 +28,8 @@ async function store(req, res) {
     const user = await User.create(req.body);
     req.login(user, () => res.redirect("/home"));
   } catch (error) {
-    res.redirect("/landing");
+    console.log(error.message);
+    res.redirect("/");
   }
 }
 

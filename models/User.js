@@ -6,29 +6,33 @@ const userSchema = new Schema(
   {
     firstname: String,
     lastname: String,
-    email: String,
+    email: {
+      type: String,
+      validate: {
+        validator: async function (email) {
+          var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+          return re.test(email);
+        },
+        //  message: (props) => `${props.value} is already in use.`,
+      },
+      required: [true, "User email required"],
+    },
+
     username: {
       type: String,
       validate: {
         validator: async function (username) {
           const user = await this.constructor.findOne({ username });
-          console.log(user.username);
-          if (user || user.username !== "home" || user.username !== "about-us") {
-            console.log("1er if");
-            console.log(user.username);
-            if (this.id === user.id) {
-              console.log("2ndo if");
-              return true;
-            }
-            return false;
-          }
-          return true;
+          return username !== "home" && username !== "about-us" && !user;
         },
-        message: (props) => `${props.value} is already in use.`,
+        //  message: (props) => `${props.value} is already in use.`,
       },
       required: [true, "User username required"],
+      min: [2, "Username must have at least 2 characters"],
+      max: [30, "Username must have at least 30 characters"],
     },
     password: String,
+
     bio: String,
     profile: {
       type: String,
@@ -44,12 +48,22 @@ const userSchema = new Schema(
       {
         type: Schema.Types.ObjectId,
         ref: "User",
+        // validate: {
+        //   validator: async function (userId) {
+        //     return !this.followers.includes(userId);
+        //   },
+        // },
       },
     ],
     following: [
       {
         type: Schema.Types.ObjectId,
         ref: "User",
+        // validate: {
+        //   validator: async function (userId) {
+        //     return !this.following.includes(userId);
+        //   },
+        // },
       },
     ],
   },

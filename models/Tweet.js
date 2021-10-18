@@ -8,7 +8,18 @@ const tweetSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "User",
     },
-    likes: [{ type: Schema.Types.ObjectId, ref: "User" }],
+    likes: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        validate: {
+          validator: async function (userId) {
+            console.log(this.likes.includes(userId));
+            return !this.likes.includes(userId);
+          },
+        },
+      },
+    ],
   },
   { timestamps: true },
 );
