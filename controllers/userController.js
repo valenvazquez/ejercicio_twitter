@@ -69,7 +69,7 @@ async function destroy(req, res) {
 async function follow(req, res) {
   const user = await User.findByIdAndUpdate(
     req.params.id,
-    { $push: { followers: req.user } },
+    { $push: { followers: req.user.id } },
     { new: true },
   );
   req.user.following.push(user._id);

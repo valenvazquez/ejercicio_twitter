@@ -50,7 +50,10 @@ const userSchema = new Schema(
         ref: "User",
         validate: {
           validator: function (userId) {
-            return !this.followers.includes(userId);
+            console.log(userId);
+            console.log(this.followers);
+            // return !this.followers.includes(userId);
+            return true;
           },
         },
       },
@@ -61,7 +64,8 @@ const userSchema = new Schema(
         ref: "User",
         validate: {
           validator: function (userId) {
-            return !this.following.includes(userId);
+            // return !this.following.includes(userId);
+            return true;
           },
         },
       },
