@@ -6,6 +6,7 @@ async function index(req, res) {}
 // Display the specified resource.
 async function show(req, res) {
   try {
+    const users = await User.find().limit(3);
     const user = await User.findOne({ username: req.params.username }).populate({
       path: "tweets",
       populate: {
@@ -13,7 +14,7 @@ async function show(req, res) {
       },
     });
     if (user) {
-      res.render("profilePage", { thisUser: user });
+      res.render("profilePage", { thisUser: user, users });
     } else {
       res.redirect("/home");
     }

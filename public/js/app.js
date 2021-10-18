@@ -6,13 +6,16 @@ for (const btn of likeButtons) {
 
 async function likeDislike(e) {
   e.preventDefault();
+  e.stopPropagation();
   try {
     if (this.classList.contains("liked")) {
       await axios.delete(this.href);
       this.lastChild.innerHTML--;
+      document.querySelector("#likes-count").innerHTML--;
     } else {
       await axios.post(this.href);
       this.lastChild.innerHTML++;
+      document.querySelector("#likes-count").innerHTML++;
     }
     this.classList.toggle("liked");
   } catch (error) {
@@ -53,6 +56,7 @@ if (tweetButtonModal) tweetButtonModal.addEventListener("click", postTweet(tweet
 
 function postTweet(content) {
   return async function (e) {
+    e.stopPropagation();
     e.preventDefault();
     const { data } = await axios.post("/tweet", { content: content.innerText });
     console.log(data);
@@ -171,29 +175,36 @@ function addNewTweet(tweet) {
   `;
   tweetSection.prepend(newTweet);
   likeButtons[0].addEventListener("click", likeDislike);
-  tweetContent.innerText = "";
-  tweetContentModal.innerText = "";
+  tweetContent ? (tweetContent.innerText = "") : null;
+  tweetContentModal ? (tweetContentModal.innerText = "") : null;
 }
 
 // -------------------- FOLLOW / UNFOLLOW ------------------------ //
-const followBtn = document.querySelector("#follow");
-const unfollowBtn = document.querySelector("#unfollow");
+const followBtn = document.querySelectorAll(".follow");
+const unfollowBtn = document.querySelectorAll(".unfollow");
 
 if (followBtn) {
-  followBtn.addEventListener("click", async function (e) {
-    e.preventDefault();
-    const user = await axios.post(followBtn.href);
-    followBtn.classList.add("d-none");
-    unfollowBtn.classList.remove("d-none");
+  followBtn.forEach((btn, i) => {
+    btn.addEventListener("click", async function (e) {
+      e.stopPropagation();
+      e.preventDefault();
+      const user = await axios.post(btn.href);
+      btn.classList.add("d-none");
+      unfollowBtn[i].classList.remove("d-none");
+      document.querySelector("#following-count").innerHTML++;
+    });
   });
 }
 
 if (unfollowBtn) {
-  unfollowBtn.addEventListener("click", async function (e) {
-    e.preventDefault();
-    console.dir(unfollowBtn);
-    const user = await axios.delete(unfollowBtn.href);
-    followBtn.classList.remove("d-none");
-    unfollowBtn.classList.add("d-none");
+  unfollowBtn.forEach((btn, i) => {
+    btn.addEventListener("click", async function (e) {
+      e.stopPropagation();
+      e.preventDefault();
+      const user = await axios.delete(btn.href);
+      btn.classList.add("d-none");
+      followBtn[i].classList.remove("d-none");
+      document.querySelector("#following-count").innerHTML--;
+    });
   });
 }

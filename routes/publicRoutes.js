@@ -24,9 +24,9 @@ publicRouter.delete("/:username");
 publicRouter.patch("/:username");
 
 // ---------- TWEETS ------------ //
-publicRouter.get("/:username/:tweetId");
+publicRouter.get("/:username/:tweetId", tweetController.show);
 publicRouter.post("/tweet", isAuthenticated, tweetController.store);
-publicRouter.delete("/tweet/:id");
+publicRouter.delete("/:username/:tweetId", isAuthenticated, tweetController.destroy);
 
 // ---------- LIKES ------------ //
 publicRouter.post("/tweet/like/:id", isAuthenticated, likeController.store);
