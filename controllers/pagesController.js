@@ -1,8 +1,10 @@
 const { User, Tweet } = require("../models");
+const _ = require("lodash");
 
 async function showHome(req, res) {
-  const users = await User.find().limit(3);
-  const tweets = await Tweet.find()
+  let users = await User.find().limit(60);
+  users = _.sampleSize(users, 3);
+  const tweets = await Tweet.find({ user: { $in: req.user.following } })
     .sort("-createdAt")
     .limit(20)
     .populate({ path: "user", select: "firstname lastname username profile" });

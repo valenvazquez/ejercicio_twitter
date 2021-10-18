@@ -7,16 +7,15 @@ module.exports = async () => {
   const users = [];
 
   for (let i = 0; i < 10; i++) {
-    let user = new User({
+    users.push({
       firstname: faker.name.firstName(),
       lastname: faker.name.lastName(),
       email: faker.internet.email().toLowerCase(),
       username: faker.internet.userName() + i,
-      password: "hola",
-      bio: faker.lorem.paragraphs(2),
+      password: "2a$10$vISH76v6TtKCujGmPHnP7eupt0NZu.yShv.72QH6MVBfqUpzSXzMa",
+      bio: faker.lorem.paragraphs(1),
       profile: faker.internet.avatar(),
     });
-    await user.save();
   }
 
   await User.insertMany(users);

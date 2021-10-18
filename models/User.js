@@ -48,26 +48,26 @@ const userSchema = new Schema(
       {
         type: Schema.Types.ObjectId,
         ref: "User",
-        validate: {
-          validator: function (userId) {
-            console.log(userId);
-            console.log(this.followers);
-            // return !this.followers.includes(userId);
-            return true;
-          },
-        },
+        // validate: {
+        //   validator: function (userId) {
+        //     // console.log(userId);
+        //     // console.log(this.followers);
+        //     // return !this.followers.includes(userId);
+        //     return true;
+        //   },
+        // },
       },
     ],
     following: [
       {
         type: Schema.Types.ObjectId,
         ref: "User",
-        validate: {
-          validator: function (userId) {
-            // return !this.following.includes(userId);
-            return true;
-          },
-        },
+        // validate: {
+        //   validator: function (userId) {
+        //     // return !this.following.includes(userId);
+        //     return true;
+        //   },
+        // },
       },
     ],
   },
