@@ -24,6 +24,7 @@ async function store(req, res) {
 
 // Remove the specified resource from storage.
 async function destroy(req, res) {
+  console.log(req.params.tweetId);
   const tweet = await Tweet.findById(req.params.tweetId);
   if (String(tweet.user._id) === String(req.user.id)) {
     tweet.remove();
